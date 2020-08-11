@@ -45,16 +45,18 @@
     <h1> Ingreso </h1>
     <form>
       <!--Usuario-->
-      <label for="Usuario"> Usuario </label>
-      <input type="text" placeholder="Usuario"> <br>
+      
+      <input class="rellenar" type="text" placeholder="Usuario" required> <br>
 
       <!-- Contraseña-->
-      <label for="Contraseña"> Contraseña </label>
-
-      <input type="password" placeholder="Contraseña"> <br>
-
-      <input type="submit" value="Ingrese"> <br>
-
+      
+      <input class="rellenar" type="password" placeholder="Contraseña" required> <br>
+      
+      <input type="checkbox" value="recordar"> Recordar contraseña
+      
+      
+      <input id="ingreso" type="submit" value="Ingrese" onclick="login()">  <br>
+      
       <a href="#"> ¿Olvidó su contraseña? </a> <br>
 
       <p> ¿No tiene cuenta? <a href="#"> Ingrese aquí </a> </p>
@@ -75,5 +77,6 @@
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
+  
 </body>
 </html>

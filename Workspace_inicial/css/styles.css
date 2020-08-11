@@ -145,13 +145,14 @@ a.custom-card:hover {
   padding: 0;
   background: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  width: 90%;
+  height: 75%;
 } 
 
 .login_box {
   font-family: sans-serif;
   width: 320px;
-  height: 420px;
+  height: 450px;
   background-color: rgb(235, 209, 209);
   left: 50%;
   top: 50%;
@@ -172,4 +173,18 @@ a.custom-card:hover {
   width: 250px;
   height: 100px;
 }
+
+
+.login_box .rellenar {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#ingreso {
+  background-color: rgb(106, 171, 233);
+  border-radius: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 4%;
+  }
 
