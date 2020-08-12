@@ -43,19 +43,18 @@
       <div class="login_box">
     <img class="avatar" src="img/login.png" alt="Logo de e-Commerce">
     <h1> Ingreso </h1>
-    <form>
+    <form id="form">
       <!--Usuario-->
-      
-      <input class="rellenar" type="email" placeholder="Correo" required> <br>
+        <input class="rellenar" id="correo" type="email" placeholder="Correo"> <br>
 
       <!-- Contraseña-->
+        <input class="rellenar" id="contraseña" type="password" placeholder="Contraseña"> <br>
       
-      <input class="rellenar" type="password" placeholder="Contraseña" required> <br>
-      
+      <!--recordar contraseña-->
       <input type="checkbox" value="recordar"> Recordar contraseña
       
-      
-      <input id="ingreso" type="submit" value="Ingrese" class="button">  <br>
+      <!--Ingreso-->
+      <button id="ingreso" type="submit" class="button" onclick="javascript:callPages()" ;> Ingrese </button><br>
       
       <a href="#"> ¿Olvidó su contraseña? </a> <br>
 
