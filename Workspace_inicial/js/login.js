@@ -1,15 +1,15 @@
-function callLogin(){
+function callLogin() {
     var last_conection = localStorage.getItem('last_conection')
     console.log(last_conection)
     if (last_conection !== 'SI') {
         window.location = "login.html";
     }
-     
+
 }
 
 
 function callPages() {
-    
+
     var my_user = document.getElementById('correo').value
     var my_pass = document.getElementById('contraseña').value
     console.log(my_user)
@@ -21,14 +21,14 @@ function callPages() {
             localStorage.setItem('last_conection', 'SI')
             window.location = "index.html";
         }
-        else{
+        else {
             alert('Ingrese contraseña')
         }
     }
     else {
-       alert('Ingrese usuario')
-    } 
-  
+        alert('Ingrese usuario')
+    }
+
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
