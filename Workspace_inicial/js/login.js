@@ -1,12 +1,3 @@
-// función para validar correo q ver si funciona
-//function validarCorreo(correo){
-  //  var expReg=/^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/ ;
- //   var esValido= expReg.test(correo);
- //   if (esValido=false){
- //       alert('El correo no válido, por favor ingrese nuevamente');
- //   }
-//}
-
 function callLogin(){
     var last_conection = localStorage.getItem('last_conection')
     console.log(last_conection)
