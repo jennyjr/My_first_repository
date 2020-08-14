@@ -160,6 +160,10 @@ a.custom-card:hover {
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   padding: 35px 35px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .login_box h1 {
