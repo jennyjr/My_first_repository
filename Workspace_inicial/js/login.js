@@ -11,6 +11,7 @@ function callLogin(){
 function callPages() {
     
     var my_user = document.getElementById('correo').value
+      localStorage.setItem('correo', my_user)
     var my_pass = document.getElementById('contraseña').value
     console.log(my_user)
     console.log(my_pass)
@@ -31,9 +32,13 @@ function callPages() {
   
 }
 
+    
+   
+  
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-//document.addEventListener("DOMContentLoaded", function(e){
-
-
+document.addEventListener("DOMContentLoaded", function(e){
+    var show_user = document.getElementById('logged_user');
+    show_user.innerHTML += localStorage.getItem('correo');
+})
