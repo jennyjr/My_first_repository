@@ -1,24 +1,24 @@
+// función para llamar al login antes que el index 
 function callLogin(){
     var last_conection = localStorage.getItem('last_conection')
-    console.log(last_conection)
+    
     if (last_conection !== 'SI') {
         window.location = "login.html";
     }
      
 }
 
-
+// función para poder entrar al index una vez registrado
 function callPages() {
     
     var my_user = document.getElementById('correo').value
       localStorage.setItem('correo', my_user)
     var my_pass = document.getElementById('contraseña').value
-    console.log(my_user)
-    console.log(my_pass)
+    
     if (my_user !== '') {
         // cuando el usuario tiene algo  
         if (my_pass !== '') {
-            //cuando la csn tiene algo
+            //cuando la csñ tiene algo
             localStorage.setItem('last_conection', 'SI')
             window.location = "index.html";
         }
@@ -32,12 +32,8 @@ function callPages() {
   
 }
 
-    
-   
-  
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+ 
+// mostrar el usuario en la página
 document.addEventListener("DOMContentLoaded", function(e){
     var show_user = document.getElementById('logged_user');
     show_user.innerHTML += localStorage.getItem('correo');
