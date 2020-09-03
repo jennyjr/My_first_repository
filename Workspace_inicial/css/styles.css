@@ -196,3 +196,13 @@ a.custom-card:hover {
   color: white;
   margin-top: 0.2cm;
 }
+
+.checked {
+  color: orange;
+}
+
+#addComent {
+  width:300px;
+  height:100px;
+  
+}
