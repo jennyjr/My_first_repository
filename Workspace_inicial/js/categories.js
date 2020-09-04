@@ -134,3 +134,9 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+// mostrar el usuario en la página
+document.addEventListener("DOMContentLoaded", function(e){
+    var show_user = document.getElementById('logged_user');
+    show_user.innerHTML += localStorage.getItem('correo');
+})

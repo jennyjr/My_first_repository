@@ -1,6 +1,6 @@
 var product = {};
 
-function showImagesGallery(array){
+function showImagesGallery(array){ //función para mostrar las imágenes
 
     let htmlContentToAppend = "";
 
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         if (resultObj.status === "ok")
         {
             product = resultObj.data;
-
+           //declaro cada variable
             let productNameHTML  = document.getElementById("productName");
             let productDescriptionHTML = document.getElementById("productDescription");
             let productCostHTML = document.getElementById("productCost");
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let categoryProductHTML = document.getElementById("category");
             
             
-        
+          //muestra en el html cada elemento del json
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
             productCostHTML.innerHTML = product.cost + " " + product.currency;
@@ -44,9 +44,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             
             
 
-            //Muestro las imagenes en forma de galería
+            //Muestra las imagenes en forma de galería
             showImagesGallery(product.images);
         }
     });
 });
 
+// mostrar el usuario en la página
+document.addEventListener("DOMContentLoaded", function(e){
+    var show_user = document.getElementById('logged_user');
+    show_user.innerHTML += localStorage.getItem('correo');
+})
