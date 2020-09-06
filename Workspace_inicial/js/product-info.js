@@ -28,22 +28,22 @@ function addComment (){
 
     let dayRaw = dateTime.getDate()
     dayFormated = (dayRaw<10)? '0'+dayRaw:dayRaw
-    
-    dateTime =dateTime.getFullYear()+'-'+ monthFormated +'-'+ dayFormated +' '+dateTime.getHours()+':'+ dateTime.getMinutes() +':'+ dateTime.getSeconds() ;         //2020-02-21 15:05:22
-    console.log(dateTime)
+    //tomar fecha y hora en formato 2020-02-21 15:05:22
+    dateTime =dateTime.getFullYear()+'-'+ monthFormated +'-'+ dayFormated +' '+dateTime.getHours()+':'+ dateTime.getMinutes() +':'+ dateTime.getSeconds() ;         
+    //console.log(dateTime)
     let user = localStorage.getItem('correo');
-    console.log(user)
+    //console.log(user)
     let myScore = document.getElementById('myScore').value;
-    console.log(myScore)
+    //console.log(myScore)
     let newComment = document.getElementById('newComment').value;
     document.getElementById('newComment').value = '';
-    console.log(newComment)
+    //console.log(newComment)
 
     let htmlContentToAppend = ''
     htmlContentToAppend = showStars(myScore)
     htmlContentToAppend +=`
         <p><span>`+ user +`</span>, <span>`+ dateTime +`</span> <br>`+ newComment +`</p>`
-        //`<p><span>Jenny</span>, <span>19/02/2020 15:45</span> <br>Esto es una mierda</p>`
+        
     document.getElementById('commentList').innerHTML += htmlContentToAppend
 }
 function showRelatedProductos(relatedProducts){
@@ -75,7 +75,7 @@ function showRelatedProductos(relatedProducts){
 
     
 }
-
+//mostrar la informacion de los productos
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -123,7 +123,7 @@ function showStars(amountStars){
     return htmlContentToAppend
 }
 
-//para traer los comentarios del Json y mostrarlos en en html
+//para traer los comentarios del Json y mostrarlos en el html
 getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
   if(resultObj.status === "ok")
   {
