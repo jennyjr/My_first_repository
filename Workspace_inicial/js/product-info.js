@@ -18,10 +18,64 @@ function showImagesGallery(array){ //función para mostrar las imágenes
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
 }
+//agregar nuevo comentario
+function addComment (){
+    let dateTime = new Date()
+    let comments = '';
+    
+    let monthRaw = dateTime.getMonth()
+    monthFormated = (monthRaw<10)? '0'+monthRaw:monthRaw
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+    let dayRaw = dateTime.getDate()
+    dayFormated = (dayRaw<10)? '0'+dayRaw:dayRaw
+    
+    dateTime =dateTime.getFullYear()+'-'+ monthFormated +'-'+ dayFormated +' '+dateTime.getHours()+':'+ dateTime.getMinutes() +':'+ dateTime.getSeconds() ;         //2020-02-21 15:05:22
+    console.log(dateTime)
+    let user = localStorage.getItem('correo');
+    console.log(user)
+    let myScore = document.getElementById('myScore').value;
+    console.log(myScore)
+    let newComment = document.getElementById('newComment').value;
+    document.getElementById('newComment').value = '';
+    console.log(newComment)
+
+    let htmlContentToAppend = ''
+    htmlContentToAppend = showStars(myScore)
+    htmlContentToAppend +=`
+        <p><span>`+ user +`</span>, <span>`+ dateTime +`</span> <br>`+ newComment +`</p>`
+        //`<p><span>Jenny</span>, <span>19/02/2020 15:45</span> <br>Esto es una mierda</p>`
+    document.getElementById('commentList').innerHTML += htmlContentToAppend
+}
+function showRelatedProductos(relatedProducts){
+    // mostrar los productos relacionados
+    // relatedProducts = [1,3]
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok")
+        {
+            product = resultObj.data;
+                        
+            for(let i = 0; i < relatedProducts.length; i++){
+                n = relatedProducts[i]
+                let htmlContentToAppend = '';
+                htmlContentToAppend += `
+                <div class="col-lg-3 col-md-4 col-6">
+                    <div class="d-block mb-4 h-100">
+                        <a href="">`+product[n].name+`
+                        <img class="img-fluid img-thumbnail" src="`+product[n].imgSrc+`" alt="">
+                        </a>
+                    </div>
+                </div>
+                `
+                document.getElementById('relatedProducts').innerHTML += htmlContentToAppend
+            }
+
+        }
+    });
+
+    
+}
+
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_URL).then(function(resultObj){
         if (resultObj.status === "ok")
@@ -35,6 +89,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             let categoryProductHTML = document.getElementById("category");
             
             
+            
           //muestra en el html cada elemento del json
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
@@ -43,15 +98,47 @@ document.addEventListener("DOMContentLoaded", function(e){
             categoryProductHTML.innerHTML = product.category;
             
             
+            
 
-            //Muestra las imagenes en forma de galería
+            //Ejecutar la función para mostrar las imagenes en forma de galería
             showImagesGallery(product.images);
+
+            //mostrar productos relacionados
+            showRelatedProductos(product.relatedProducts)
         }
     });
-});
 
-// mostrar el usuario en la página
-document.addEventListener("DOMContentLoaded", function(e){
+    // mostrar el usuario en la página
     var show_user = document.getElementById('logged_user');
     show_user.innerHTML += localStorage.getItem('correo');
+});
+
+ //función para mostrar la puntuación con estrellas
+function showStars(amountStars){
+    let htmlContentToAppend = "";
+    for (let i = 1; i<=5; i++){
+        if (i<=amountStars) {htmlContentToAppend += `<span class="fa fa-star checked"></span>`}
+        else{ htmlContentToAppend += `<span class="fa fa-star"></span>`}
+    }
+    return htmlContentToAppend
+}
+
+//para traer los comentarios del Json y mostrarlos en en html
+getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
+  if(resultObj.status === "ok")
+  {
+      comments = resultObj.data;
+      for(let i = 0; i < comments.length; i++){
+          let htmlContentToAppend = ''
+          htmlContentToAppend = showStars(comments [i].score)
+          htmlContentToAppend += 
+          `<p><span>`+comments[i].user+`</span>, <span>`+ comments[i].dateTime +`</span> <br>`+ comments[i].description+`</p>`
+          document.getElementById('commentList').innerHTML += htmlContentToAppend
+     }
+ }
+
 })
+
+
+
+

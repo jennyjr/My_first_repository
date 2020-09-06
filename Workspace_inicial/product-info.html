@@ -25,7 +25,7 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <p id="welcome">Hola, <span id="logged_user"></span> </p>
+      <a href="login.html" class="f90-logout-button">Cerrar sesión</a>
     </div>
   </nav>
   <main role="main">
@@ -48,53 +48,52 @@
         <dd>
           <p id="productDescription"></p>
         </dd>
-  
+
         <dt>Cantidad de vendidos</dt>
         <dd>
           <p id="productSold"></p>
         </dd>
-  
+
         <dt>Categoría</dt>
         <dd>
           <p id="category"></p>
         </dd>
-  
+
         <dt>Imágenes ilustrativas</dt>
         <dd>
           <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
           </div>
         </dd>
       </dl>
+
+      <dt>Productos relacionados</dt>
+      <dd><div class="row text-center text-lg-left pt-2" id="relatedProducts"></div>
+      
+      
+
       <p> <b> Comentarios </b></p>
       <div id="commentList">
-        <div>
-          <span class="fa fa-star checked"></span>          
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
-        </div>
+
       </div>
-      <div> 
-        <form action="">
+      <div>
         <p> <b> Publicar nuevo comentario </b></p>
-        <textarea name="comment" cols="50" rows="3" placeholder="Ingrese texto"></textarea>
-        <input type="button" value="Publicar">
-        </form>
+        Calificación
+        <select name="OS" id='myScore'>
+          <option value="1">Muy malo</option>
+          <option value="2">Malo</option>
+          <option value="3">Regular</option>
+          <option value="4">Bueno</option>
+          <option value="5">Excelente</option>
+        </select><br>
+        <textarea name="newComment" id="newComment" cols="50" rows="3" placeholder="Ingrese texto"></textarea> <br>
+        <input type="button" value="Publicar" style="margin-block-start: 5px;" onclick="javascript:addComment()">
+        <br>
+        <br>
 
       </div>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a la lista de productos</a>
     </div>
   </main>
-
-  <!--<div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>-->
 
   <footer class="text-muted">
     <div class="container">
