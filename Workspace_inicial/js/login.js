@@ -7,6 +7,12 @@ function callLogin(){
     }
      
 }
+//función para cerrar sesión
+function logout(){
+    localStorage.setItem('last_conection','NO')
+    window.location = "index.html";
+    
+}
 
 // función para poder entrar al index una vez registrado
 function callPages() {
