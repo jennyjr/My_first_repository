@@ -28,6 +28,7 @@ function addComment (){
 
     let dayRaw = dateTime.getDate()
     dayFormated = (dayRaw<10)? '0'+dayRaw:dayRaw
+    
     //tomar fecha y hora en formato 2020-02-21 15:05:22
     dateTime =dateTime.getFullYear()+'-'+ monthFormated +'-'+ dayFormated +' '+dateTime.getHours()+':'+ dateTime.getMinutes() +':'+ dateTime.getSeconds() ;         
     //console.log(dateTime)
