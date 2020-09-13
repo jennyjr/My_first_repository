@@ -41,6 +41,9 @@ function callPages() {
  
 // mostrar el usuario en la página
 document.addEventListener("DOMContentLoaded", function(e){
-    var show_user = document.getElementById('logged_user');
-    show_user.innerHTML += localStorage.getItem('correo');
+    var last_conection = localStorage.getItem('last_conection')
+    if (last_conection == 'SI') {
+        var show_user = document.getElementById('logged_user');
+        show_user.innerHTML += localStorage.getItem('correo');
+    }
 })
