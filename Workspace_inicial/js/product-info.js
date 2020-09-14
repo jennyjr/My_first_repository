@@ -109,9 +109,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 
-    // mostrar el usuario en la página
-    var show_user = document.getElementById('logged_user');
-    show_user.innerHTML += localStorage.getItem('correo');
+    
 });
 
  //función para mostrar la puntuación con estrellas
