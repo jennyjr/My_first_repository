@@ -33,7 +33,7 @@ function callPages() {
         }
     }
     else {
-       alert('Ingrese correo')
+       alert('Ingrese usuario')
     } 
   
 }
