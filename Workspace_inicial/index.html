@@ -31,14 +31,24 @@
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <p id="welcome">Hola, <span id="logged_user"></span> </p>
-      <button type="button" class="btn btn-default btn-sm" onclick="javascript:logout()">
-        <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión
-      </button>
+      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>         
+
+      <!-- Lista desplegable-->
+        <div class="dropdown show">  <span id="welcomeTo"> Bienvenido/a </span>
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+           <span id="logged_user"></span>
+        </a>      
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"  onclick="javascript:logout()" href="login.html"> <span class="glyphicon glyphicon-log-out"></span> Cerrar sesión </a>
+        </div>
+        
+      </div>
       
-    
+          
       
     </div>
   </nav>
