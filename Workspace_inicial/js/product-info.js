@@ -1,6 +1,6 @@
 var product = {};
 
-function showImagesGallery(array){ //función para mostrar las imágenes
+/* function showImagesGallery(array){ //función para mostrar las imágenes
 
     let htmlContentToAppend = "";
 
@@ -17,7 +17,7 @@ function showImagesGallery(array){ //función para mostrar las imágenes
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
-}
+} */
 //agregar nuevo comentario
 function addComment (){
     let dateTime = new Date()
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function(e){
             
 
             //Ejecutar la función para mostrar las imagenes en forma de galería
-            showImagesGallery(product.images);
+            //showImagesGallery(product.images);
 
             //mostrar productos relacionados
             showRelatedProductos(product.relatedProducts)
