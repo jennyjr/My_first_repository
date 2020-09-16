@@ -216,3 +216,32 @@ a.custom-card:hover {
   color: white;
 }
 
+/*ancho del carrusel*/
+.containerCarousel {
+  width: 320px;
+ 
+}
+
+/*centrar la imagen en el carrusel*/
+.carousel-inner  .item  img { 
+  margin: 0 auto; 
+} 
+
+/*estilos del carrusel*/
+
+
+.glyphicon.glyphicon-chevron-right, .glyphicon.glyphicon-chevron-left {
+  color: black;
+  
+}
+span.left.carousel-control, span.right.carousel-control {
+    background-image: none;
+  
+}
+
+.carousel-control {
+  background-image: none;
+}
+
+
+
