@@ -249,3 +249,30 @@ span.left.carousel-control, span.right.carousel-control {
 .col-md-4 p {
    margin-left: 2.3cm;
 }
+
+/*estilos del carrito de compra*/
+#myCar {
+  text-align: center;
+}
+thead {
+background-color: #ff0077bc;
+}
+
+.all {
+  display: flex;
+}
+
+.table.table-hover tbody tr td {
+  vertical-align: middle;
+    
+}
+/* tabla resumen de costos*/
+.centrado {
+  text-align: center;
+  
+  }
+
+/*boton de compra*/
+.buy-button {
+  background-color: #ff0077bc;
+  }
