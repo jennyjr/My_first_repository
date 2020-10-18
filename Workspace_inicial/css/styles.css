@@ -255,7 +255,7 @@ span.left.carousel-control, span.right.carousel-control {
   text-align: center;
 }
 thead {
-background-color: #ff0077bc;
+background-color: rgb(106, 171, 233);
 }
 
 .all {
@@ -272,7 +272,15 @@ background-color: #ff0077bc;
   
   }
 
-/*boton de compra*/
-.buy-button {
-  background-color: #ff0077bc;
-  }
+/*botones*/
+button.btn.btn-primary{
+  color: black;
+  background-color: rgb(106, 171, 233);
+  font-weight: bold;
+}
+
+a.btn.btn-primary {
+  color: black;
+  background-color: rgb(106, 171, 233);
+  font-weight: bold;
+}
