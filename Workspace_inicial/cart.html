@@ -38,6 +38,11 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
 
+  <!--Modal-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
   <!-- llamar función login-->
   <script src="js/login.js"></script>
@@ -62,7 +67,7 @@
           <span id="logged_user"></span>
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="cart.html">Mi carrito</a>
+          <a class="dropdown-item" href="cart.html"> Mi carrito <span class="badge">3</span></a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" type="button" onclick="javascript:logout()"> <span
@@ -105,14 +110,14 @@
   <div class="container">
     <div class="columna">
       <div class="col-md-6">
-        <div>
+        <div class="dato_envio">
           <!-- calle numero esquina pais -->
           <h4> <b> Datos del envío </b></h4>
-          <h5> <b> Dirección de envío </b></h5>
-          <p> Calle: <br><input type="text" name="street" placeholder="Ingrese calle" required> </p>
-          <p> Número: <br><input type="text" name="street" placeholder="Ingrese número" required> </p>
-          <p> Esquina: <br><input type="text" name="street" placeholder="Ingrese esquina" required> </p>
-          <p> País: <br><input type="text" name="country" placeholder="Ingrese país" required> </p>
+          <h5> <b> Dirección de envío: </b></h5>
+          <p> Calle: <br><input type="text" id="calle" placeholder="Ingrese calle" required> </p>
+          <p> Número: <br><input type="text" id="numero" placeholder="Ingrese número" required> </p>
+          <p> Esquina: <br><input type="text" id="esquina" placeholder="Ingrese esquina" required> </p>
+          <p> País: <br><input type="text" id="pais" placeholder="Ingrese país" required> </p>
         </div>
         <br>
 
@@ -120,82 +125,103 @@
         <!-- Tipo de envío:-->
         <div>
           <h5> <b> Tipo de envío: </b></h5>
-          <input type="radio" name="tipo_envio" value="0.05"  onclick="modifyCant()" checked> Standard (12 a 15 días) - Costo del 5% sobre el subtotal. <br>
-          <input type="radio" name="tipo_envio" value="0.07" onclick="modifyCant()"> Express (5-8 días) - Costo del 7% sobre el subtotal. <br>
-          <input type="radio" name="tipo_envio" value="0.15" onclick="modifyCant()"> Premium (2-5 días) - Costo del 15% sobre el subtotal. <br>
-                    
+          <input type="radio" name="tipo_envio" value="0.05" onclick="modifyCant()" checked> Standard (12 a 15 días) -
+          Costo del 5% sobre el subtotal. <br>
+          <input type="radio" name="tipo_envio" value="0.07" onclick="modifyCant()"> Express (5-8 días) - Costo del 7%
+          sobre el subtotal. <br>
+          <input type="radio" name="tipo_envio" value="0.15" onclick="modifyCant()"> Premium (2-5 días) - Costo del 15%
+          sobre el subtotal. <br>
+
         </div>
         <br>
 
-        <div>
-          <!-- forma de pago podrá ser con tarjeta de crédito o transferencia bancaria -->
-          <h5> <b>Forma de pago</b> </h5>
-          <input type="radio" name="hm" value="h" required> Tarjeta de crédito <br>
-          <input type="radio" name="hm" value="m" required> Transferencia bancaria
-        </div>
       </div>
     </div>
 
-
-    <!-- Importe total -->
-    <div class="col-md-6">
-
-      
-      <table class="table table-hover" style="text-align: center;">
-           <thead>
-              <h3 class="centrado"> <b>Costos</b></h3> 
-           </thead>
-        <tbody class="tableTotalCost">
-          <tr>
-            <td> Subtotal </td>
-            <td><span id="costo_subtotal"> </span> <span id="moneda_subtotal"></span></td>
-          </tr>
-          <tr>
-            <td>Costo de envío</td>
-            <td > <span id="costo_envio"> </span><span id="moneda_envio"></span> </td>
-          </tr>
-          <tr>
-            <td> Importe total </td>
-            <td> <span id="totalCost"> </span><span id="moneda_USD"></span></td>
-          </tr>
-
-        </tbody>
-      </table>
-
-    </div>
-
     <div>
-      <button class="buy-button" style="margin-left: 60mm; margin-top: 5mm;"> <b> Confirmar compra </b></button>
+      <h5> <b>Forma de pago:</b>
+        <span>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Seleccione aquí
+          </button>
+        </span>
+      </h5>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+
+
+      <br>
+      <br>
+      <!-- Importe total -->
+      <div class="col-md-6">
+
+
+        <table class="table table-hover" style="text-align: center;">
+          <thead>
+            <h3 class="centrado"> <b>Costos</b></h3>
+          </thead>
+          <tbody class="tableTotalCost">
+            <tr>
+              <td> Subtotal </td>
+              <td><span id="costo_subtotal"> </span> <span id="moneda_subtotal"></span></td>
+            </tr>
+            <tr>
+              <td>Costo de envío</td>
+              <td> <span id="costo_envio"> </span><span id="moneda_envio"></span> </td>
+            </tr>
+            <tr>
+              <td> Importe total </td>
+              <td> <span id="totalCost"> </span><span id="moneda_USD"></span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+
+      <div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"  onclick="validation()" style="margin-left: 60mm; margin-top: 5mm;"> <b> Confirmar compra
+          </b></button>
+      </div>
+      <div class="modal fade" id="myModal" role="dialog"></div>
+
+
+
+    </div>
+   
+
+
     </div>
 
-  </div>
+    <br>
 
-  <br>
+    <footer class="text-muted bg-light">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
 
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
-  </footer>
+    <script src="js/jquery-3.4.1.min.js"></script>
 
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+    
 </body>
 
 </html>
