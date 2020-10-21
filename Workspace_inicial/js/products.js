@@ -4,10 +4,10 @@ const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_ASC_BY_COST = "Menor precio";
 const ORDER_DESC_BY_COST = "Mayor precio";
 const ORDER_BY_PROD_SOLD = "Relevancia";
-var currentProductsArray = [];
-var currentSortCriteria = undefined;
-var minCost = undefined;
-var maxCost = undefined;
+let currentProductsArray = [];
+let currentSortCriteria = undefined;
+let minCost = undefined;
+let maxCost = undefined;
 
 
 

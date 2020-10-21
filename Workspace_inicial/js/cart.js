@@ -42,13 +42,13 @@ function modifyCant() {
     }
     let subtotal = 0;
     for (let i = 0; i < info_car.length; i++) {
-        // leer costo total del articulo uno
+        // leer costo total del articulo 
         let cost_art = parseInt(document.getElementById('subtotal_article' + i + '').innerHTML);
 
 
         // sumar articulo uno y articulo dos
         subtotal = subtotal + cost_art;
-        console.log(subtotal);
+       // console.log(subtotal);
     }
     // escribirlo en el subtotal.
     document.getElementById('costo_subtotal').innerHTML = subtotal;
@@ -60,7 +60,7 @@ function modifyCant() {
     //multiplicar subtotal por porcentaje de envio
     let porcentaje_envio = subtotal * readTypeSend();
     document.getElementById('costo_envio').innerHTML = parseInt(porcentaje_envio);
-    console.log(porcentaje_envio)
+    //console.log(porcentaje_envio)
     //calculo del total
     document.getElementById('totalCost').innerHTML = (porcentaje_envio + subtotal).toFixed(0);
 }
@@ -115,7 +115,7 @@ function showModalWindow() {
     document.getElementById('exampleModal').innerHTML = htmlContentToAppend;
 
 }
-  
+
 //funcion para validar los campos y confirmar la compra
 function validation() {
     let street = document.getElementById('calle').value;
@@ -127,7 +127,7 @@ function validation() {
     let codigo = document.getElementById('codigoTarget').value;
     let vence = document.getElementById('cadTarget').value;
     let transfNumber = document.getElementById('transfNumber').value;
-    
+
     let transf = document.getElementById('transf').checked;
 
 
@@ -160,7 +160,7 @@ function validation() {
     }
     else {
         htmlContentToAppend =
-                    `<div class="modal-dialog">
+            `<div class="modal-dialog">
                     
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -175,14 +175,26 @@ function validation() {
                       
                     </div>
                   </div>`
-                document.getElementById('myModal').innerHTML = htmlContentToAppend;
-        
+        document.getElementById('myModal').innerHTML = htmlContentToAppend;
+
     }
 
 };
+
+//funcion para mostrar badge
+function showBadge() {
+   let countBadge = ''
+    for (let i = 0; i < info_car.length; i++) {
+         countBadge = document.getElementById('cantNumber' + i + '').value;
+        
+        console.log(countBadge)
+        
+        document.getElementsByClassName('badge').innerHTML = countBadge;
+    } 
+};
+
 //para traer los elementos del Json 
 document.addEventListener("DOMContentLoaded", function (e) {
-
 
 
     getJSONData(CART_INFO_URL).then(function (resultObj) {
@@ -198,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             modifyCant()
 
             readTypeSend()
+            showBadge()
 
         }
     })
