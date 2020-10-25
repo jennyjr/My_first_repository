@@ -20,6 +20,7 @@ function showProducts() {
             <td><input id="cantNumber`+ i + `" type="number" data-val="1" min="1" value="` + info_car[i].count + `"onchange="javascript:modifyCant()" style="width: 50px; text-align:center;"></td>
             <td id="valueCost"> `+ info_car[i].unitCost + `<span id="currency"> ` + info_car[i].currency + `</span></td>
             <td ><span id="subtotal_article`+ i + `">` + info_car[i].count * info_car[i].unitCost + `</span><span id="currency` + i + `">` + info_car[i].currency + ` </span></td>
+            <td> <div> <img src="img/trash.png"  alt="basura" width="39" height="35"></div></td> 
         </tr>            
         `
 
@@ -28,30 +29,30 @@ function showProducts() {
     }
 }
 
-//funcion para modificar el precio si aumenta la cantidad
-function modifyCant() {
-    for (let i = 0; i < info_car.length; i++) {
 
+function modifyCant() {
+    /* 
+    funcion para modificar el precio si aumenta la cantidad 
+    */
+
+    // calculo del subtotal por articulo
+    for (let i = 0; i < info_car.length; i++) {
         let cant_prod = document.getElementById('cantNumber' + i + '').value;
         let cost_prod = info_car[i].unitCost;
         let subtotal_prod = cant_prod * cost_prod;
-
-
         document.getElementById('subtotal_article' + i + '').innerHTML = `` + subtotal_prod + ``;
-
     }
+
+    // calculo de subtotal general
     let subtotal = 0;
     for (let i = 0; i < info_car.length; i++) {
-        // leer costo total del articulo 
+        
         let cost_art = parseInt(document.getElementById('subtotal_article' + i + '').innerHTML);
-
-
-        // sumar articulo uno y articulo dos
-        subtotal = subtotal + cost_art;
-       // console.log(subtotal);
+        
+        subtotal = subtotal + cost_art;     // sumar de todos los articulos
     }
-    // escribirlo en el subtotal.
-    document.getElementById('costo_subtotal').innerHTML = subtotal;
+    document.getElementById('costo_subtotal').innerHTML = subtotal; // escribirlo en el subtotal.
+    
     //escribo la moneda en la tabla de costos
     document.getElementById('moneda_subtotal').innerHTML = info_car[0].currency;
     document.getElementById('moneda_envio').innerHTML = info_car[0].currency;
@@ -63,6 +64,15 @@ function modifyCant() {
     //console.log(porcentaje_envio)
     //calculo del total
     document.getElementById('totalCost').innerHTML = (porcentaje_envio + subtotal).toFixed(0);
+
+    // calcular el valor para mostrar en el badge
+    let cant_prod = 0
+    for (let i = 0; i < info_car.length; i++) {
+        cant_prod += parseInt(document.getElementById('cantNumber' + i + '').value);
+    }
+    sessionStorage.setItem('cant_prod',cant_prod);
+    showBadge()
+
 }
 
 //función que lee el tipo de envio seleccionado
@@ -181,21 +191,10 @@ function validation() {
 
 };
 
-//funcion para mostrar badge
-function showBadge() {
-   let countBadge = ''
-    for (let i = 0; i < info_car.length; i++) {
-         countBadge = document.getElementById('cantNumber' + i + '').value;
-        
-        console.log(countBadge)
-        
-        document.getElementsByClassName('badge').innerHTML = countBadge;
-    } 
-};
+
 
 //para traer los elementos del Json 
 document.addEventListener("DOMContentLoaded", function (e) {
-
 
     getJSONData(CART_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
@@ -210,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             modifyCant()
 
             readTypeSend()
+
             showBadge()
 
         }

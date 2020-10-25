@@ -19,9 +19,7 @@
 
   <!-- llamar función login-->
   <script src="js/login.js"></script>
-  <script>
-    callLogin()
-  </script>
+  <script>callLogin()</script>
 
 </head>
 
@@ -35,7 +33,7 @@
   
       <!-- Lista desplegable-->
       <div class="dropdown show"> <span id="welcomeTo"> Bienvenido/a </span>
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button"          id="dropdownMenuLink" data-toggle="dropdown"
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
           <span id="logged_user"></span> 
         </a>
@@ -129,10 +127,21 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
+  <script>readBadge()</script>
 </body>
 
 </html>

@@ -46,9 +46,9 @@
 
   <!-- llamar función login-->
   <script src="js/login.js"></script>
-  <script>
+   <script>
     callLogin()
-  </script>
+  </script> 
 
 </head>
 
@@ -61,18 +61,18 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
 
       <!-- Lista desplegable-->
-      <div class="dropdown show"> </span>
+      <div class="dropdown show"> <span id="welcomeTo">  </span>
         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <span id="logged_user"></span>
+          <span id="logged_user"></span> 
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="cart.html"> Mi carrito <span class="badge">3</span></a>
+          <a class="dropdown-item" href="cart.html">Mi carrito <span class="badge" id="myBadge"> </span></a>
           <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" type="button" onclick="javascript:logout()"> <span
               class="glyphicon glyphicon-log-out"></span> Cerrar sesión</button>
-
+  
         </div>
       </div>
     </div>
@@ -98,6 +98,9 @@
           </th>
           <th scope="col">
             <p>Subtotal</p>
+          </th>
+          <th scope="col">
+            
           </th>
         </tr>
       </thead>
@@ -216,11 +219,12 @@
       </div>
     </div>
     <script src="js/jquery-3.4.1.min.js"></script>
-
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/dropzone.js"></script>
     <script src="js/init.js"></script>
     <script src="js/cart.js"></script>
-
+    <script src="js/login.js"></script>
+    
     
 </body>
 
