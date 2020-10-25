@@ -8,7 +8,12 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -28,16 +33,36 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/dropzone.css" rel="stylesheet">
+    <!-- llamar función login-->
+  <script src="js/login.js"></script>
+  <script>
+   callLogin()
+ </script> 
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-            <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-            <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-            <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-            <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-            <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+  
+        <!-- Lista desplegable-->
+        <div class="dropdown show"> <span id="welcomeTo">  </span>
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span id="logged_user"></span> 
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="cart.html">Mi carrito <span class="badge" id="myBadge"> </span></a>
+            <a class="dropdown-item" href="my-profile.html">Mi perfil</a>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" type="button" onclick="javascript:logout()"> <span
+                class="glyphicon glyphicon-log-out"></span> Cerrar sesión</button>
+    
+          </div>
         </div>
+      </div>
     </nav>
       <div class="container">
         <div class="text-center p-4">
@@ -216,6 +241,8 @@
       <script src="js/bootstrap.bundle.min.js"></script>
       <script src="js/dropzone.js"></script>
       <script src="js/init.js"></script>
-      <script src="js/sell.js"></script>
+      <script src="js/sell.js"></script>      
+      <script src="js/login.js"></script>
+      <script>readBadge()</script>
     </body>
 </html>
