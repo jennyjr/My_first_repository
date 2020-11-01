@@ -284,3 +284,15 @@ a.btn.btn-primary {
   background-color: rgb(106, 171, 233);
   font-weight: bold;
 }
+#imgUser {
+  width: 200px;
+}
+
+.table.table-sm tbody tr td {
+    border-top: white;
+    font-size: 150%;
+    
+}
+
+
+ 
