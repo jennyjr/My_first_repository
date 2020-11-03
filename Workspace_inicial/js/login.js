@@ -40,11 +40,10 @@ function callPages() {
 }
 
 function readBadge(){
-    /*
-        Leo el json de articulos en el carrito lo escribo en la var badge del sessionStr.
-    */
-
     
+    //    Leo el json de articulos en el carrito lo escribo en la var badge del sessionStr.
+    
+  
     if(!sessionStorage.getItem('cant_prod')){ //se ejecuta si esta vacio cant_prod en el sessionStr
         getJSONData(CART_INFO_URL).then(function (resultObj) {
             if (resultObj.status === "ok") {
@@ -58,7 +57,7 @@ function readBadge(){
                 cant_prod += info_car[i].count;
             }
             sessionStorage.setItem('cant_prod',cant_prod);
-            console.log(sessionStorage.getItem('cant_prod'))
+            //console.log(sessionStorage.getItem('cant_prod'))
         })
     }
 };
@@ -81,5 +80,6 @@ document.addEventListener("DOMContentLoaded", function(e){
     }
     
     showBadge()
-        
+
+     
 })
