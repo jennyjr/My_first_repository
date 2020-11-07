@@ -11,11 +11,12 @@ function callLogin(){
 //función para cerrar sesión
 function logout(){
     localStorage.setItem('last_conection','NO')
-    window.location = "index.html";
+    window.location = "login.html";//redirecciono a login
     
+    window.localStorage.clear(); //elimino los datos del localStorage del usuario registrado
 }
 
-// función para poder entrar al index una vez registrado
+// función que no te deja entrar al index si no estas registrado
 function callPages() {
     
     let my_user = document.getElementById('correo').value
